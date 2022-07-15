@@ -1,0 +1,492 @@
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+
+/* ------------------------------------------- */
+header {
+    background-color: rgb(16, 3, 43);
+    color: white;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+/* ------------------------------NAVIGATION-------------------------------- */
+#navigation-bar-container {
+    display: flex;
+    justify-content: center;
+}
+
+#navigation-bar {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#navigation-bar li {
+    display: inline block;
+    padding: 10px 15px 10px 15px;
+}
+
+#navigation-bar li:hover {
+    cursor: pointer;
+}
+
+#navigation-bar li a {
+    color: black;
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: 600;
+}
+
+/* --------------------------------------PANES------------------------------------------- */
+#container {
+    border-top: solid 1px gainsboro;
+    background-color: beige;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* ---------------------------------------RESPONSIVE------------------------------------- */
+/* Responsive cho màn hình kích thước nhỏ */
+@media (min-width:250px) and (max-width:1010px) {
+    /* Hiện theo hàng dọc */
+    #container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Chuyển về cỡ chữ nhỏ */
+    #container .pane {
+        width: 100%;
+        font-size: smaller;
+    }
+
+    /* Điều chỉnh căn lề của các item view */
+    #items-list-rows .item {
+        margin: 5px;
+    }
+
+    #items-list-rows .item .item-no {
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    #items-list-rows .item .item-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #items-list-rows .item .item-info span {
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    /* Không hiện chữ ở các button nhỏ của item */
+    #items-list-rows .item .horizontal button span {
+        display: none;
+    }
+}
+
+/* Responsive cho màn hình kích thước nhỡ */
+@media (min-width:1010px) and (max-width:1300px) {
+    /* Hiện theo hàng ngang */
+    #container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Không hiện chữ ở các button nhỏ của item */
+    #items-list-rows .item .horizontal button span {
+        display: none;
+    }
+}
+
+/* Responsive cho màn hình kích thước lớn */
+@media (min-width:1300px) {
+    #container {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.pane {
+    flex-direction: column;
+    /* align-items: stretch; */
+}
+
+#left-pane {
+    width: 10%;
+    min-width: 100px;
+    background-color: rgb(255, 255, 255);
+}
+
+#center-pane {
+    width: 52%;
+    min-width: 350px;
+    /* --------------------->Đây là chỗ chỉnh màu cho danh sách item  */
+    background-color: #ebeff5;
+}
+
+#right-pane {
+    width: 38%;
+    min-width: 100px;
+    /* --------------------->Đây là chỗ chỉnh màu thông tin mốc thời gian  */
+    background-color: #e1e7ee; 
+
+}
+
+/* --------------------------------------------------- */
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+/* -------------------------COMMON ELEMENTS------------------------ */
+h1 {
+    margin: 0;
+    padding: 15px;
+}
+
+h2, h3, h4 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    text-align: center;
+}
+
+.buttons button, #download {
+    min-height: 37px;
+    background-color: white;
+    border: solid 2px rgb(201, 201, 201);
+    border-radius: 7px;
+    box-shadow: 1px 1px #24a0ed;
+}
+
+.buttons button i, #download i {
+    color: #2d2b77; 
+}
+
+.buttons button:hover, #download:hover {
+    cursor: pointer;
+    background-color: #ffccd2;
+}
+
+.buttons button:hover i, #download:hover i {
+    color: #ff6131;
+}
+
+.small-buttons button{
+    height: 25px;
+    background-color: white;
+    border: solid 2px gainsboro;
+    border-radius: 12%;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.small-buttons button i {
+    color: #2d2b77;
+}
+
+.small-buttons button:hover{
+    cursor: pointer;
+    background-color: #ffccd2;
+}
+
+.small-buttons button:hover i {
+    color: #ff6131;
+}
+
+textarea {
+    resize: none;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+form input {
+    height: 22px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+    margin-left: 17px;
+}
+
+form select {
+    height: 28px;
+    min-width: 100px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.input-container input:hover {
+    background-color: lightblue;
+}
+
+.input-container textarea:hover {
+    background-color: lightblue;
+}
+
+/* --------------COLOR INPUT-------------- */
+.input-container input[type="color"] {
+    height: 30px;
+    width: 29px;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+}
+
+.input-container input[type="color"]::-webkit-color-swatch {
+    border-radius: 50%;
+}
+
+.notification {
+    color: red;
+    font-size: 13px;
+    height: 15px;
+    margin: 3px 0 5px 15px;
+    padding: 0;
+    display: none;
+}
+
+/* ------------------------BUTTONS LIST----------------------- */
+.sidebar.menu {
+    margin: 25px 20px 25px 20px;
+}
+
+.sidebar.menu button, .sidebar.menu a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* ------------------------------------------------ */
+.horizontal.buttons {
+    justify-content: space-evenly;
+}
+
+/* ------------------------------------------------ */
+.main-form-btns {
+    margin: 10px 80px 10px 80px;
+}
+
+/* ------------------------------------------------ */
+.item-btns {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* -------------------------------SIDEBAR---------------------------- */
+#new, #save, #download {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: black;
+    text-decoration: none;
+}
+
+/* -------------------------------MAIN FORM------------------------ */
+#main-form {
+    padding: 20px 20px 10px 20px;
+    border-bottom: solid 3px #1416c4;
+    background-color: #bed5e9; 
+}
+
+/* ---------------------------ITEM VIEW---------------------------- */
+#items-list {
+    margin: 30px 20px 20px 20px;
+}
+
+#items-list-rows {
+    height: 170px;
+    overflow-y: auto;
+}
+
+.item {
+    margin:5px 15px 5px 20px;
+    align-items: baseline;
+}
+
+.item-no {
+    margin-right: 30px;
+}
+
+.item-box {
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: white;
+    border: solid 1px gainsboro;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.item-info {
+    margin: 10px;
+}
+
+.item-view-text {
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* --------------------------ITEM FORM---------------------------- */
+#item-form {
+    margin: 20px;
+}
+
+#item-form button {
+    margin: 10px 50px 10px 50px;
+}
+
+#item-form .imore-row {
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#item-form .imore-row button {
+    background-color: #bed5e9;
+    border: transparent;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#item-form .imore-row button i {
+    color: #2d2b77;
+}
+
+#item-form .imore-row button:hover {
+    background-color: #ffccd2;
+}
+
+#item-form .imore-row button:hover i {
+    color: #ff6131;
+}
+
+/* Hàng nhập imore */
+#item-form .imore-row #imore-input {
+    height: 22px;
+    width: 100%;
+    border: solid 1px gray;
+    padding: 2px 90px 2px 2px;
+}
+
+#item-form .imore-row #add-imore {
+    margin: 0;
+    padding: 5px 5px 5px 5px;
+    width: 80px;
+    position: absolute;
+    right: 16px;
+    bottom: 11px;
+}
+
+/* Hàng hiện imore list */
+#item-form .imore-row #imore-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border: solid 1px gainsboro;
+    padding: 10px 10px 10px 10px;
+    margin: 0 90px 0 15px;
+    width: 100%;
+    height: 80px;
+    overflow-y: auto;
+}
+
+#item-form .imore-row #clear-imore-list {
+    height: 102px;
+    width: 80px;
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    right: 16px;
+    bottom: 0px;
+}
+
+#item-form .imore-row #imore-list .imore {
+    display: inline-block;
+    box-sizing:border-box;
+    position: relative;
+
+    text-align:left;
+    align-items: center;
+    font:normal 14px sans-serif;
+    
+    height: 25px;
+    padding: 3px 10px 3px 3px;
+    margin: 3px 12px 3px 3px;
+
+    background-color:#f4f8fa;
+    border:1px solid #dbe3e7;
+    box-shadow: 0 2px 3px #dbe3e7;
+}
+
+#item-form .imore-row #imore-list .imore .del-imore {
+    background-color:#de4a4a;
+    border-radius: 50%;
+    color:#fff;
+    font-size:10px;
+    line-height: 18px;
+    width:18px;
+    height: 18px;
+    position: absolute;
+    top:-8px;
+    right:-8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#item-form .imore-row #imore-list .imore .del-imore:hover {
+    background-color: rgb(112, 4, 4);
+}
+
+#item-form .imore-row #imore-list .imore .del-imore:hover i {
+    color: white;
+}
+
+#item-form .imore-row #imore-list .imore .del-imore i {
+    font-size: 9px;
+}
+
+/* ------------------------------------------------ */

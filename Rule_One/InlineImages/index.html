@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a trealet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Trealet</h1>
+    </header>
+    <div id="navigation-bar-container">
+        <ul class="horizontal" id="navigation-bar">
+            <li id="showoff"><a href="#">Tạo trang trình bày</a></li>
+            <li id="activities"><a href="#">Tạo Activities</a></li>
+        </ul>
+    </div>
+    <div id="container">
+        <!-- Menu chính -->
+        <div class="pane" id="left-pane">
+            <div class="vertical sidebar menu buttons">
+                <button id="new" type="submit">
+					<i class="fas fa-file-medical"></i><br>Tạo mới
+				</button>
+                <button id="save" type="submit">
+					<i class="fas fa-save"></i><br> Lưu
+				</button>
+                <a download="showoff.trealet" id="download"><i class="fas fa-download"></i><br> Tải về</a>
+            </div>
+        </div>
+        <div class="pane" id="center-pane">
+            <!-- Form nhập chính -->
+            <form class="vertical" id="main-form">
+                <h3>Thông tin chung của trang trình bày</h3>
+                <div class="horizontal">
+                    <div class="input-container">
+                        <label class="medium-label">Phương pháp</label>
+                        <select id="exec">
+							<option value="timeline">Timeline</option>
+							<!-- <option value="slideshow">Slideshow</option> -->
+							<!-- <option value="gallery">Gallery</option> -->
+						</select>
+                    </div>
+                    <div class="input-container">
+                        <label class="medium-label">Màu nền</label>
+                        <input type="color" id="bg-color" value="#2b2d77">
+                    </div>
+                    <div class="input-container">
+                        <label class="medium-label">Màu chữ</label>
+                        <input type="color" id="text-color" value="#ffffff">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label class="medium-label">Tiêu đề</label>
+                    <input type="text" id="title" />
+                </div>
+                <div class="input-container">
+                    <label class="medium-label">Tác giả</label>
+                    <input type="text" id="author" />
+                </div>
+                <div class="input-container">
+                    <label class="medium-label">Mô tả về trang trình bày</label>
+                    <textarea class="text-area" id="desc" rows="3"></textarea>
+                </div>
+                <div class="horizontal buttons main-form-btns">
+                    <button id="hide-main-form" type="submit">
+						<i class="fas fa-angle-double-up"></i> Thu gọn
+					</button>
+                    <button id="show-main-form" type="submit">
+						<i class="fas fa-angle-double-down"></i> Mở rộng
+					</button>
+                </div>
+            </form>
+            <!-- Danh sách items view -->
+            <div class="vertical" id="items-list">
+                <h3>Danh sách các đối tượng</h3>
+                <div class="vertical" id="items-list-rows">
+                    <div style="background-color: #F4F5EB; border: 2px ridge #333; width: 180px; padding-top: 4px;">
+                        <center>
+                            <a href="javascript:alert('Home')" title="Home"><img border=0 src="data:image/gif;base64,R0lGODlhHwAfAPcAAAAAAIxKAKVjCLW1tb29tcbGvc7OxtZ7ANbWztbW1tbe1t7e1uelMefn1ufn3ufn5+fv3u+MAO/v5+/v7/fGCPf35/f37//nY////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAAALAAAAAAfAB8AAAj+AAEIHEhQAoICAxImLIBAAsGHEAc6KEDAgAIJGCU4UGCgooOIESUYYJjxgQSTGE0eNOAQpMCJBhycnGmyJs2RH0E6INAQpc2ZNDEiIJDzoQSSP5MCrXmwJUEDMWs6eCDTQYQDWKdOPTkV6sOdD8KKFRvhAlYKBx4IOCBA7M6iRxE4mEt3btkDDBgcQLtWQN2hLd8uWOBgcOG7DChQ0IuWrYLChAk8AGCwwODLgxErVsyYrYMEl0nGVUC6tObNnPceSFBaQVMJAxC4lo3gNOrUaFnTHoAxNm3XVxPfRq139e8BEGAjWD5bgIALw287T8AcAXLly2kjOACdc17higXSIKDO/Lpv7Qq4bw7APgBq8eOzX69InrZ6xe3dbxZffyTGkb8tdx8F+b0Xn2sFsCSBAgTM5lp63RHYnoHUudZgRgkGOGCB+43nGk4OGcQTabKx5dyJKJ7ImoUNCaRRAZYN1ppsrT3Y2gIwyjSQBAtUpABml/0IJGYd6VjQUDH9uBFkGxGm5I8dPQaRUAQUMBdhhBV25ZYUJZBcSAtSJBddWZZ5UAGPOTXlgkNVOSZdBxEwIkYu7VhYnAol5GaadRqF0Uaz0TgXnX2umVFyGakJUUAAADs="></a>
+                            <a href="javascript:alert('Gift')" title="Gift"><img border=0 src="data:image/gif;base64,R0lGODlhHwAfAPcAAAAAAABCpTlCrVKE1lqU94y176VCGLW1tb29tcbGvc7OxtbWztbW1tbe1t6MQt7e1t7e3ufn1ufn3ufn5+fv3u/v5+/v7/etSvf35/f37//vrf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAAALAAAAAAfAB8AAAj+AAEIHEhQwoIECQ4oRLhAAsGHEAc+SJjgAQQJEyY8mHigYsSIExQceDChgkmTJVE+OKBgwseBEhK0zFiyJsoKNRUkcPgx5oKTN1PaTHmQ58MJMoMqxcmUadGHFZLSpBkgAFWrUzMqUFCB4MoJEsKGnYDVaoCwWKdKGDkwakuxYs9KOCtXLlwJOrsCWPtAAoSNfi8GeEB37kUIfwOvfACggs6NkP9CriqgKuTLkJO6xfzAgWfPAwgM+OzAAGeEJhEoeLCAdWsHGmJrCD1AtgYDrRfk1pmRpevWCmBfGE57+HDcun8fwIlAt/PXGowXN478+YIDGVVbXyCcuGjjF6rPPz9AYYLq37oHFCDAnjZ79gK2846aYHv3C9OPW5+YQGv93NBJ9x11yTmHWgUrAajbffmF9xxrI6GEEGsUMjjgcQwAqJMEXYV0QG4QLGDAiCMKYCKJIy4QYogs6VUBBRNepmJrkIGIGUIcDqSRb5hJFhlnIpFEEE4HKSABYEj2BdmRGynQXElQhYRjX0eGRaWSRzq5AJQQEZmQkVhWWaVI9XEZEU4P6NQRjUyqiaOZH5mUJUIK1YmQkRzq9VJbODFJIWAZ6bknVCiVV95JewYEADs="></a>
+                            <a href="javascript:alert('Cart')" title="Cart"><img border=0 src="data:image/gif;base64,R0lGODlhHwAfAPcAAAAAADlCrWNzznOM1oSc3oy175zG57W1tb29tb3W98bGvc7OxtbWztbW1tbe1t7e1ufn1ufn3ufn5+fv3u/v5+/v7/f35/f37////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAAALAAAAAAfAB8AAAj+AAEIHEiQAgMFBxImVMCAAsGHEAdGUIBggQMKGClEcLCgYoSIESksYJhRAgWTGE0eXOAQpMCJCyKcnGmyJs2RH0FGQNAQpc2ZNDEyQJDzIQWSP5MCrXmwJcEFMWtGkCBz6tSTVrFKgPpwp4SvYMOKHUuV6MCjDCKoXav2AVW2a922bfoSwYMID/LezSvBAd68eAsECPBXwgOzBhXo1SugsePHAgIkeOAgb+UFDdE62My5AAEMBgqIHtA4QAEGlTlzVIDxAGoGrx0kIOCZwIDbpWO/Rn2gNWwHux3Qvk3acYDfuh0cmEDBNXLYDAjYxm0c+nMGy5tbB45aOuniua/JA8/ufDfsBAMGqx8sYLv13hQqBrdOH/Zx8SMxjtSd3Pxx7sABpwBLFDiAAICxEbCeegT0Z+BFGA3YXwANBhhdABYG2BFGABjE02axDUbZAww8IGJqr/HUkkYKKLZYXiWmBuOIerUo01mHWUTjizyO2NEDTgnkYUyAVbbRXUYa+UBHF0EkFAIKtCUlXlM6QFFmIRV45ZR3URnBSAr4FaRRBQ4FZVpxMdDRhxy6JCReByGgUEJniukmmRqB+FuXbd6JJ0bMZTTmQwEBADs="></a>
+                            <a href="javascript:alert('Settings')" title="Settings"><img border=0 src="data:image/gif;base64,R0lGODlhHwAfAPcAAAAAAFJKUnNrc7W1tb29tcbGvc7Oxs7OztbWztbW1tbe1t7e1ufn1ufn3ufn5+fv3u/v5+/v7/f35/f37////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAAALAAAAAAfAB8AAAj+AAEIHEgQAoICAxImLIAAAsGHEAc2KEDAgAIIGCE0UGCgYoOIESEYYJjRAQSTGE0eNOAQpMCJBhqcnGmyJs2RH0E2INAQpc2ZNDEeIJDzIQSSP5MCrXmwJUEDMWs2cCBzaoMAWAOcnHoS6sOdDsKKHesgAAUDBwKQpUp04FEEDeLKjbug7Nm0VOc2WND0JYEFexcIDuxAgdm0ghdgBcy4rcECiSMLVqD4bADBZi9HJvlWgefPnxcYNhDBAFYKEQKAVtAUwgAErGHLnh3gAMuMpmXHHoDxte7fhu8eGG5AwIHZrHm7RsA8dnMEZtEGEEDd+GzZAx4sZ44c+t3aw4fPc3euIPv2696lH+eOIEGC8czNV3wv+7R67u7bw0cwEuNI2g5AldZ6rMVW4HMF3KYAAQYGcNWAzx0IHAIMZpRgfQFC2N2BseHkkEE8eWYaVmghIJpnsKF4IE8taVQAZKuZGBplkgn2okxuLVBRjTzSOFlHCzglEIgxUbbXRoAZORhlHV0EEUYUFkDXXIAdeSRFCuD4JAQKUATXRlZWydeLWQppFJcUEsCQXIAdRECIGLnk1l5uKpSQmrBpKadbGG1EXpbambnnkBlBEGhGcgYEADs="></a>
+                            <a href="javascript:alert('Help')" title="Help"><img border=0 src="data:image/gif;base64,R0lGODlhHwAfAPcAAAAAALW1tb2MhL2UhL29tcaUlMbGvc6UWs7OxtZ7ANalY9ata9bWztbW1tbe1t7e1uelGOfn1ufn3ufn5+fv3u+MAO+9Ie/v3u/v5+/v7/fOMff35/f37//nY////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAAALAAAAAAfAB8AAAj+AAEIHEgQAwMDARImNMAAA8GHEAdKMEAAgQMMGDFIcICgooSIETEgYJhxAgaTGE0eROAQpMCJCCScnGmyJs2RH0FKINCQ5syfNg0SyPkQA8mgSIGePNiSIIKYNSVMkClV6smqVyc8fbhzgtevXguIHVtAKtipQwcaZSChrVsJBRZo6GChroKyb9syfTn0gYQHfh8IWGDhwAABCuwK+BvYb1qDBgBLBjzAgoLFDgYktiDAwWTAJNc6GE3agQDOpQVAgDCgNGmmGAIwcMBgMgMBAgbMFqxgdefPDxgEwCh7NoPax2kbF3Bg9QEBx5EffxBAZnHj05Pfbg7hOXbtwq3YR/+u/LbzztHL064eO7375KoTQCefnn1F9e/jz6fPYCTGkcYpJ+Btuc03oHEGsITBAwQMSNuD4EEoIQMEPJBRgoDVFlyGguEG3YMc9meATAAINZtnu+0mQAUJtDZacCg6wFNLGhlggGulDaDjbyeSZiOJAi1YEXCSeUbkAx1ZWBSFMXnG2EZ+Oekkkg02pZZQI/7Vll9adukARQ4AWRQGX/K05ZldjnSjmBBhRBsBBKz51kFwzoaRS2r91R8BCiUUp5NW4lmiRhuNN1pbdwraZkYaMRroQwEBADs="></a>
+                        </center>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="pane" id="right-pane">
+            <!-- Form nhập Items -->
+            <form class="vertical" id="item-form">
+                <h3>Thông tin chi tiết của đối tượng</h3>
+                <div class="input-container">
+                    <label class="medium-label">Tiêu đề</label>
+                    <input type="text" class="iinput" id="itime">
+                </div>
+                <div class="input-container">
+                    <label class="medium-label">File đa phương tiện</label>
+                    <input type="text" class="iinput" id="iid" placeholder="Nhập id của file đa phương tiện">
+
+                    <!-- Dòng hiện thông báo -->
+                    <span id="iid-noti" class="notification"></span>
+
+                </div>
+                <div class="input-container">
+                    <label class="medium-label">Mô tả</label>
+                    <textarea class="iinput" id="idesc" rows="6"></textarea>
+                </div>
+                <!-- Cập nhật phần code Imore -->
+                <div class="input-container">
+                    <label class="medium-label">File đa phương tiện liên quan</label>
+
+                    <!-- Dòng nhập imore -->
+                    <div class="horizontal imore-row">
+                        <input type="text" class="iinput" id="imore-input" placeholder="Nhập Id ">
+                        <button id="add-imore" type="button">
+							<i class="fas fa-plus-square"></i> Thêm
+						</button>
+                    </div>
+
+                    <!-- Dòng hiện thông báo -->
+                    <span id="imore-noti" class="notification"></span>
+
+                    <!-- Dòng hiện danh sách imore -->
+                    <div class="horizontal imore-row">
+                        <div id="imore-list">
+
+                        </div>
+                        <button id="clear-imore-list" type="button">
+							<i class="fas fa-broom"></i> Xóa
+						</button>
+                    </div>
+                </div>
+            </form>
+            <!-- Các nút cho item form -->
+            <div class="horizontal buttons">
+                <button id="add" type="button">
+					<i class="fas fa-plus"></i> 
+					<span>Thêm vào</span>
+				</button>
+                <button id="clear" type="button">
+					<i class="fas fa-redo"></i>
+					<span>Nhập lại</span>
+				</button>
+                <button id="update" type="button">
+					<i class="fas fa-check"></i> 
+					<span>Cập nhật</span>
+				</button>
+                <button id="cancel" type="button">
+					<i class="fas fa-backward"></i> 
+					<span>Đặt lại</span>
+				</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
