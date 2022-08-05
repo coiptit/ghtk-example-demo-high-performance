@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title> Avoid Redirects </title>
+</head>
+
+<body>
+    <input type='button' id="demo" onclick="redirectPage1()" value="go to http://nytimes.com" />
+    <input type='button' id="demo" onclick="redirectPage2()" value="go to http://www.nytimes.com" />
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    
+    function redirectPage1() {
+        window.location = "http://nytimes.com";
+    }
+
+    function redirectPage2() {
+        window.location = "http://www.nytimes.com";
+    }
+
+</script>
+
+</html>
