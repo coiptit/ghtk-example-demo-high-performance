@@ -1,0 +1,3422 @@
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui1/license.txt
+version: 2.2.0
+*/
+/* for all templates and grids */
+.yui1body{text-align:center;}
+#ft{clear:both;}
+/**/
+/* 750 centered, and backward compatibility */
+#doc,#doc2,#doc3,.yui1-t1,.yui1-t2,.yui1-t3,.yui1-t4,.yui1-t5,.yui1-t6,.yui1-t7 {
+    margin:auto;text-align:left;
+    width:57.69em;*width:56.3em;min-width:750px;}
+/* 950 centered */
+#doc2 {
+    width:73.074em;*width:71.313em;min-width:950px;}
+/* 100% with 10px viewport side matting */
+#doc3 {
+    margin:auto 10px; /* not for structure, but so content doesn't bleed to edge */
+    width:auto;}
+
+/* below required for all fluid grids; adjust widths and margins above accordingly */
+
+/* to preserve source-order independence for Gecko */
+.yui1-b{position:relative;}
+.yui1-b{_position:static;} /* for IE < 7 */
+#yui1-main .yui1-b{position:static;}
+
+#yui1-main {width:100%;}
+.yui1-t1 #yui1-main,
+.yui1-t2 #yui1-main,
+.yui1-t3 #yui1-main{float:right;margin-left:-25em;/* IE: preserve layout at narrow widths */}
+
+.yui1-t4 #yui1-main,
+.yui1-t5 #yui1-main,
+.yui1-t6 #yui1-main{float:left;margin-right:-25em;/* IE: preserve layout at narrow widths */}
+
+.yui1-t1 .yui1-b {
+    float:left;
+    width:12.3207em;*width:12.0106em;}
+.yui1-t1 #yui1-main .yui1-b{
+    margin-left:13.3207em;*margin-left:13.0106em;
+}
+
+.yui1-t2 .yui1-b {
+    float:left;
+    width:13.8456em;*width:13.512em;}
+.yui1-t2 #yui1-main .yui1-b {
+    margin-left:14.8456em;*margin-left:14.512em;
+}
+
+.yui1-t3 .yui1-b {
+    float:left;
+    width:23.0759em;*width:22.52em;}
+.yui1-t3 #yui1-main .yui1-b {
+    margin-left:24.0759em;*margin-left:23.52em;
+}
+
+.yui1-t4 .yui1-b {
+    float:right;
+    width:13.8456em;*width:13.512em;}
+.yui1-t4 #yui1-main .yui1-b {
+    margin-right:14.8456em;*margin-right:14.512em;
+}
+
+.yui1-t5 .yui1-b {
+    float:right;
+    width:18.4608em;*width:18.016em;}
+.yui1-t5 #yui1-main .yui1-b {
+    margin-right:19.4608em;*margin-right:19.016em;
+}
+
+.yui1-t6 .yui1-b {
+    float:right;
+    width:23.0759em;*width:22.52em;}
+.yui1-t6 #yui1-main .yui1-b {
+    margin-right:24.0759em;*margin-right:23.52em;
+}
+
+.yui1-t7 #yui1-main .yui1-b {
+    display:block;margin:0 0 1em 0;
+}
+#yui1-main .yui1-b {float:none;width:auto;}
+/* GRIDS (not TEMPLATES) */
+.yui1-g .yui1-u,
+.yui1-g .yui1-g,
+.yui1-gc .yui1-u,
+.yui1-gc .yui1-g .yui1-u,
+.yui1-ge .yui1-u,
+.yui1-gf .yui1-u{float:right;display:inline;}
+.yui1-g div.first,
+.yui1-gc div.first,
+.yui1-gc div.first div.first,
+.yui1-gd div.first,
+.yui1-ge div.first,
+.yui1-gf div.first{float:left;}
+.yui1-g .yui1-u,
+.yui1-g .yui1-g{width:49.1%;}
+.yui1-g .yui1-g .yui1-u,
+.yui1-gc .yui1-g .yui1-u {width:48.1%;}
+.yui1-gb .yui1-u,
+.yui1-gc .yui1-u,
+.yui1-gd .yui1-u{float:left;margin-left:2%;*margin-left:1.895%;width:32%;}
+.yui1-gb div.first,
+.yui1-gc div.first,
+.yui1-gd div.first{margin-left:0;}
+.yui1-gc div.first,
+.yui1-gd .yui1-u{width:66%;}
+.yui1-gd div.first{width:32%;}
+.yui1-ge .yui1-u{width:24%;}
+.yui1-ge div.first,
+.yui1-gf .yui1-u{width:74.2%;}
+.yui1-gf div.first{width:24%;}
+.yui1-ge div.first{width:74.2%;}
+#bd:after,
+.yui1-g:after,
+.yui1-gb:after,
+.yui1-gc:after,
+.yui1-gd:after,
+.yui1-ge:after,
+.yui1-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+#bd,
+.yui1-g,
+.yui1-gb,
+.yui1-gc,
+.yui1-gd,
+.yui1-ge,
+.yui1-gf{zoom:1;}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui1/license.txt
+version: 2.2.0
+*/
+.yui1button  {
+
+    display:-moz-inline-stack; /* Gecko */
+    display:inline-block; /* IE, Opera and Safari */
+
+    border-width:1px 0;
+    border-style:solid;
+    border-color:#999;
+
+
+    /* Give the transparent background image to IE 6 */
+    _background-image:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../build/button/assets/background.png', sizingMethod = 'scale');
+
+    margin:auto .25em;
+
+}
+
+.yui1button .first-child {
+
+    display:block; /* Gecko, Opera and Safari */
+    *display:inline-block; /* IE */
+
+    border-width:0 1px;
+    border-style:solid;
+    border-color:#999;
+
+    margin:0 -1px;
+    *position:relative;
+    *left:-1px;
+
+}
+
+.yui1button button,
+.yui1button a {
+
+    display:block; /* Opera and Safari */
+    display:-moz-inline-block; /* Gecko */
+    *display:inline-block; /* IE */
+    padding:.25em .5em;
+    border:1px solid #ccc;
+
+}
+
+.yui1button button {
+
+    overflow:visible; /* Remove superfluous padding for IE */
+    font-size:100%; /* Makes form controls resizable in IE */
+    background-color:transparent;
+    cursor:pointer;
+    cursor:hand;
+
+}
+
+.yui1button a {
+
+    text-decoration:none;
+    color:#000;
+
+}
+
+.yui1button.splitbutton button,
+.yui1button.menubutton button {
+
+    padding-right:20px;
+    background-position:right center;
+    background-repeat:no-repeat;
+
+}
+
+.yui1button.menubutton button {
+
+
+}
+
+.yui1button.splitbutton button {
+
+
+}
+
+
+/* Focus state */
+
+.yui1button.focus {
+
+    border-color:#5e5c95;
+
+}
+
+.yui1button.focus .first-child {
+
+    border-color:#5e5c95;
+
+}
+
+.yui1button.focus button,
+.yui1button.focus a {
+
+    border-color:#cec1fc;
+
+}
+
+
+/* Hover state */
+
+.yui1button.hover {
+
+    border-color:#406fac;
+    background-color:#98d5fc;
+
+}
+
+.yui1button.hover .first-child {
+
+    border-color:#406fac;
+
+}
+
+.yui1button.hover button,
+.yui1button.hover a {
+
+    border-color:#7099ce;
+
+}
+
+
+/* Active state */
+
+.yui1button.active {
+
+    border-color:#7a8180;
+    background-color:#333;
+
+}
+
+.yui1button.active .first-child {
+
+    border-color:#7a8180;
+
+}
+
+.yui1button.active button,
+.yui1button.active a {
+
+    border-color:#98a09f;
+
+}
+
+.yui1button.splitbutton.activeoption button {
+
+    background-color:transparent;
+
+}
+
+
+
+/* Checked state */
+
+.yui1button.radio.checked,
+.yui1button.checkbox.checked {
+
+    border-color:#7a8180;
+    background-color:#333;
+
+}
+
+.yui1button.radio.checked .first-child,
+.yui1button.checkbox.checked .first-child {
+
+    border-color:#7a8180;
+
+}
+
+.yui1button.radio.checked button,
+.yui1button.checkbox.checked button {
+
+    border-color:#98a09f;
+
+}
+
+
+
+/* Disabled state */
+
+.yui1button.disabled {
+
+    border-color:#cbcdc5;
+    background:#ecece3;
+
+    _filter:none;
+
+}
+
+.yui1button.disabled .first-child {
+
+    border-color:#cbcdc5;
+
+}
+
+.yui1button.disabled button,
+.yui1button.disabled a {
+
+    border-color:transparent;
+    color:#b9b9b9;
+    cursor:default;
+
+}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui1/license.txt
+version: 2.2.0
+*/
+.yui1-calcontainer {
+    position:relative;
+    padding:5px;
+    background-color:#F7F9FB;
+    border:1px solid #7B9EBD;
+    float:left;
+    overflow:hidden;
+}
+
+.yui1-calcontainer iframe {
+    position:absolute;
+    border:none;
+    margin:0;padding:0;
+    left:-1px;
+    top:-1px;
+    z-index:0;
+    width:50em;
+    height:50em;
+}
+
+.yui1-calcontainer.multi {
+    padding:0;
+}
+
+.yui1-calcontainer.multi .groupcal {
+    padding:5px;
+    background-color:transparent;
+    z-index:1;
+    float:left;
+    position:relative;
+    border:none;
+}
+
+.yui1-calcontainer .title {
+    font:100% sans-serif;
+    color:#000;
+    font-weight:bold;
+    margin-bottom:5px;
+    height:25px;
+    position:absolute;
+    top:3px;left:5px;
+    z-index:1;
+}
+
+.yui1-calcontainer .close-icon {
+    position:absolute;
+    right:3px;
+    top:3px;
+    border:none;
+    z-index:1;
+}
+
+.yui1-calcontainer .calclose {
+    width:17px;
+    height:13px;
+    cursor:pointer;
+}
+
+/* Calendar element styles */
+
+.yui1-calendar {
+    font:100% sans-serif;
+    text-align:center;
+    border-spacing:0;
+    border-collapse:separate;
+    position:relative;
+}
+
+.yui1-calcontainer.withtitle {
+    padding-top:1.5em;
+}
+
+.yui1-calendar .calnavleft {
+    position:absolute;
+    cursor:pointer;
+    top:2px;
+    bottom:0;
+    width:9px;
+    height:12px;
+    left:2px;
+    z-index:1;
+}
+
+.yui1-calendar .calnavright {
+    position:absolute;
+    cursor:pointer;
+    top:2px;
+    bottom:0;
+    width:9px;
+    height:12px;
+    right:2px;
+    z-index:1;
+}
+
+.yui1-calendar td.calcell {
+    padding:.1em .2em;
+    border:1px solid #E0E0E0;
+    text-align:center;
+}
+
+.yui1-calendar td.calcell a {
+    color:#003DB8;
+    text-decoration:none;
+}
+
+.yui1-calendar td.calcell.today {
+    border:1px solid #000;
+}
+
+.yui1-calendar td.calcell.oom {
+    cursor:default;
+    color:#999;
+    background-color:#EEE;
+    border:1px solid #E0E0E0;
+}
+
+.yui1-calendar td.calcell.selected {
+    color:#003DB8;
+    background-color:#FFF19F;
+    border:1px solid #FF9900;
+}
+
+.yui1-calendar td.calcell.calcellhover {
+    cursor:pointer;
+    color:#FFF;
+    background-color:#FF9900;
+    border:1px solid #FF9900;
+}
+
+.yui1-calendar td.calcell.calcellhover a {
+    color:#FFF;
+}
+
+.yui1-calendar td.calcell.restricted {
+    text-decoration:line-through;
+}
+
+.yui1-calendar td.calcell.previous {
+    color:#CCC;
+}
+
+.yui1-calendar td.calcell.highlight1 { background-color:#CCFF99; }
+.yui1-calendar td.calcell.highlight2 { background-color:#99CCFF; }
+.yui1-calendar td.calcell.highlight3 { background-color:#FFCCCC; }
+.yui1-calendar td.calcell.highlight4 { background-color:#CCFF99; }
+
+.yui1-calendar .calhead {
+    border:1px solid #E0E0E0;
+    vertical-align:middle;
+    background-color:#FFF;
+}
+
+.yui1-calendar .calheader {
+    position:relative;
+    width:100%;
+    text-align:center;
+}
+
+.yui1-calendar .calheader img {
+    border:none;
+}
+
+.yui1-calendar .calweekdaycell {
+    color:#666;
+    font-weight:normal;
+    text-align:center;
+    width:1.5em;
+}
+
+.yui1-calendar .calfoot {
+    background-color:#EEE;
+}
+
+.yui1-calendar .calrowhead, .yui1-calendar .calrowfoot {
+    color:#666;
+    font-size:9px;
+    font-style:italic;
+    font-weight:normal;
+    width:15px;
+}
+
+.yui1-calendar .calrowhead {
+    border-right-width:2px;
+}
+
+/* Specific changes for calendar running under fonts/reset */
+.yui1-calendar .calbody a:hover {background:inherit;}
+p#clear {clear:left; padding-top:10px;}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui1/license.txt
+version: 2.2.0
+*/
+.yui1-overlay {
+    position:absolute;
+    display:block;
+}
+
+.yui1-tt {
+    visibility:hidden;
+    position:absolute;
+    color:#333;
+    background-color:#FDFFB4;
+    font-family:arial,helvetica,verdana,sans-serif;
+    padding:2px;
+    border:1px solid #FCC90D;
+    font:100% sans-serif;
+    width:auto;
+}
+
+* html body.masked select {
+    visibility:hidden;
+}
+
+* html div.yui1-panel-container select {
+    visibility:inherit;
+}
+
+* html div.drag select {
+    visibility:hidden;
+}
+
+* html div.hide-select select {
+    visibility:hidden;
+}
+
+.mask {
+    z-index:0;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    -moz-opacity: 0.5;
+    opacity:.50;
+    filter: alpha(opacity=50);
+    background-color:#CCC;
+}
+
+.hide-scrollbars * {
+    overflow:hidden;
+}
+
+.hide-scrollbars textarea, .hide-scrollbars select {
+    overflow:hidden;
+    display:none;
+}
+
+.show-scrollbars textarea, .show-scrollbars select {
+    overflow:visible;
+}
+
+.yui1-panel-container {
+    position:absolute;
+    background-color:transparent;
+    z-index:6;
+    visibility:hidden;
+    overflow:visible;
+    width:auto;
+}
+
+.yui1-panel-container.focused {
+}
+
+
+.yui1-panel-container.matte {
+    padding:3px;
+    background-color:#FFF;
+}
+
+.yui1-panel-container.matte .underlay {
+    display:none;
+}
+
+.yui1-panel-container.shadow {
+    padding:0px;
+    background-color:transparent;
+}
+
+.yui1-panel-container.shadow .underlay {
+    visibility:inherit;
+    position:absolute;
+    background-color:#CCC;
+    top:3px;left:3px;
+    z-index:0;
+    width:100%;
+    height:100%;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter:alpha(opacity=70);
+    zoom:1;
+}
+
+.yui1-panel {
+    visibility:hidden;
+    border-collapse:separate;
+    position:relative;
+    left:0px;top:0px;
+    font:1em Arial;
+    background-color:#FFF;
+    border:1px solid #000;
+    z-index:1;
+    overflow:hidden;
+}
+
+.yui1-panel .hd {
+    background-color:#3d77cb;
+    color:#FFF;
+    font-size:100%;
+    line-height:100%;
+    border:1px solid #FFF;
+    border-bottom:1px solid #000;
+    font-weight:bold;
+    overflow:hidden;
+    padding:4px;
+}
+
+.yui1-panel .bd {
+    overflow:hidden;
+    padding:4px;
+}
+
+.yui1-panel .bd p {
+    margin:0 0 1em;
+}
+
+.yui1-panel .container-close {
+    position:absolute;
+    top:5px;
+    right:4px;
+    z-index:6;
+    height:12px;
+    width:12px;
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    visibility:inherit;
+}
+
+.yui1-panel .ft {
+    padding:4px;
+    overflow:hidden;
+}
+
+.yui1-simple-dialog .bd .yui1-icon {
+    background-repeat:no-repeat;
+    width:16px;
+    height:16px;
+    margin-right:10px;
+    float:left;
+}
+
+.yui1-simple-dialog .bd span.blckicon {
+}
+
+.yui1-simple-dialog .bd span.alrticon {
+}
+
+.yui1-simple-dialog .bd span.hlpicon {
+}
+
+.yui1-simple-dialog .bd span.infoicon {
+}
+
+.yui1-simple-dialog .bd span.warnicon {
+}
+
+.yui1-simple-dialog .bd span.tipicon {
+}
+
+.yui1-dialog .ft, .simple-dialog .ft {
+    padding-bottom:5px;
+    padding-right:5px;
+    text-align:right;
+}
+
+.yui1-dialog form, .yui1-simple-dialog form {
+    margin:0;
+}
+
+.button-group button {
+    font:100 76% verdana;
+    text-decoration:none;
+    background-color: #E4E4E4;
+    color: #333;
+    cursor: hand;
+    vertical-align: middle;
+    border: 2px solid #797979;
+    border-top-color:#FFF;
+    border-left-color:#FFF;
+    margin:2px;
+    padding:2px;
+}
+
+.button-group button.default {
+    font-weight:bold;
+}
+
+.button-group button:hover, .button-group button.hover {
+    border:2px solid #90A029;
+    background-color:#EBF09E;
+    border-top-color:#FFF;
+    border-left-color:#FFF;
+}
+
+.button-group button:active {
+    border:2px solid #E4E4E4;
+    background-color:#BBB;
+    border-top-color:#333;
+    border-left-color:#333;
+}
+
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui1/license.txt
+version: 2.2.0
+*/
+/*debug css
+.example span, .example .yui1-dt-columntext {border:1px solid red;}*/
+
+/*foundational css*/
+td {
+    overflow:hidden;
+}
+
+.yui1-dt-headcontainer {
+    position:relative;
+
+}
+
+.yui1-dt-headtext {
+    position:relative;
+    border-right:10px;
+}
+
+.yui1-dt-headresizer {
+    position:absolute;
+    margin-right:-6px;
+    right:0;
+    bottom:0;
+    width:6px;
+    height:100%;
+    cursor:w-resize;
+    cursor:col-resize;
+}
+
+.yui1-dt-firstlink,.yui1-dt-prevlink,.yui1-dt-nextlink,.yui1-dt-lastlink,.yui1-dt-pagelink {
+    cursor:hand;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+.yui1-dt-scrollable  {
+    width:20em;
+    margin-bottom:3em;
+}
+
+
+.yui1-dt-scrollable  thead {
+    background:#696969; /*  IE needs a bgcolor to hide tbody as it scrolls */
+    border:1px solid #000;
+    display:block; /* enables tbody scrolling for safari and opera */
+}
+
+.yui1-dt-scrollable  thead th {
+    width:10em; /* any value seems to here, just need something */
+}
+
+tbody.yui1-dt-scrollable {
+    display:block; /* enables tbody scrolling for safari and opera */
+    height:10em;
+    overflow:auto; /* for scrolling other than IE */
+}
+
+/* IE specific */
+.yui1-dt-scrollable  {
+    height:10em;
+    *overflow-y:auto;
+}
+
+.yui1-dt-scrollable  tbody {
+    *height:auto; /* override the non IE height */
+}
+
+.yui1-dt-scrollable thead tr {
+    position:relative;  /* IE cant scroll tbody, so trick it into fixing thead */
+}
+
+.yui1-dt-scrollable tbody td {
+    width:10em;
+}
+
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui1/license.txt
+version: 2.2.0
+*/
+/* Menu styles */
+
+div.yui1menu {
+
+    background-color:#f6f7ee;
+    border:solid 1px #c4c4be;
+    padding:1px;
+
+}
+
+/* Submenus are positioned absolute and hidden by default */
+
+div.yui1menu div.yui1menu,
+div.yui1menubar div.yui1menu {
+
+    position:absolute;
+    visibility:hidden;
+
+}
+
+/* MenuBar Styles */
+
+div.yui1menubar {
+
+    background-color:#f6f7ee;
+
+}
+
+/*
+    Applying a width triggers "haslayout" in IE so that the module's
+    body clears its floated elements
+*/
+div.yui1menubar div.bd {
+
+    width:100%;
+
+}
+
+/*
+    Clear the module body for other browsers
+*/
+div.yui1menubar div.bd:after {
+
+    content:'.';
+    display:block;
+    clear:both;
+    visibility:hidden;
+    height:0;
+
+}
+
+/* Matches the group title (H6) inside a Menu or MenuBar instance */
+
+div.yui1menu h6,
+div.yui1menubar h6 {
+
+    font-size:100%;
+    font-weight:normal;
+    margin:0;
+    border:solid 1px #c4c4be;
+    color:#b9b9b9;
+
+}
+
+div.yui1menubar h6 {
+
+    float:left;
+    display:inline; /* Prevent margin doubling in IE */
+    padding:4px 12px;
+    border-width:0 1px 0 0;
+
+}
+
+div.yui1menu h6 {
+
+    float:none;
+    display:block;
+    border-width:1px 0 0 0;
+    padding:5px 10px 0 10px;
+
+}
+
+/* Matches the UL inside a Menu or MenuBar instance */
+
+div.yui1menubar ul {
+
+    list-style-type:none;
+    margin:0;
+    padding:0;
+
+}
+
+div.yui1menu ul {
+
+    list-style-type:none;
+    border:solid 1px #c4c4be;
+    border-width:1px 0 0 0;
+    margin:0;
+    padding:10px 0;
+
+}
+
+div.yui1menu ul.first-of-type,
+div.yui1menu ul.hastitle,
+div.yui1menu h6.first-of-type {
+
+    border-width:0;
+
+}
+
+/*
+    Styles for the menu's header and footer elements that are used as controls
+    to scroll the menu's body element when the menu's height exceeds the
+    value of the "maxheight" configuration property.
+*/
+
+div.yui1menu div.topscrollbar,
+div.yui1menu div.bottomscrollbar {
+
+    height:16px;
+    background-repeat:no-repeat;
+
+}
+
+
+div.yui1menu div.topscrollbar {
+
+    background-position:center -72px;
+
+}
+
+
+div.yui1menu div.topscrollbar_disabled {
+
+    background-position:center -88px;
+
+}
+
+
+div.yui1menu div.bottomscrollbar {
+
+    background-position:center -104px;
+
+}
+
+
+div.yui1menu div.bottomscrollbar_disabled {
+
+    background-position:center -120px;
+
+}
+
+
+/* MenuItem and MenuBarItem styles */
+
+div.yui1menu li,
+div.yui1menubar li {
+
+    font-size:85%;
+    cursor:pointer;
+    cursor:hand;
+    white-space:nowrap;
+    text-align:left;
+
+}
+
+div.yui1menu li.yui1menuitem {
+
+    padding:2px 24px;
+
+}
+
+div.yui1menu li li,
+div.yui1menubar li li {
+
+    font-size:100%;
+
+}
+
+
+/* Matches the help text for a menu item */
+
+div.yui1menu li.hashelptext em.helptext {
+
+    font-style:normal;
+    margin:0 0 0 40px;
+
+}
+
+div.yui1menu li a,
+div.yui1menubar li a {
+
+    /*
+        "zoom:1" triggers "haslayout" in IE to ensure that the mouseover and
+        mouseout events bubble to the parent LI in IE.
+    */
+    zoom:1;
+    color:#000;
+    text-decoration:none;
+
+}
+
+div.yui1menu li.hassubmenu,
+div.yui1menu li.hashelptext {
+
+    text-align:right;
+
+}
+
+div.yui1menu li.hassubmenu a.hassubmenu,
+div.yui1menu li.hashelptext a.hashelptext {
+
+    float:left;
+    display:inline; /* Prevent margin doubling in IE */
+    text-align:left;
+
+}
+
+
+/* Matches selected menu items */
+
+div.yui1menu li.selected,
+div.yui1menubar li.selected {
+
+    background-color:#8c8ad0;
+
+}
+
+div.yui1menu li.selected a.selected,
+div.yui1menubar li.selected a.selected {
+
+    text-decoration:underline;
+
+}
+
+div.yui1menu li.selected a.selected,
+div.yui1menu li.selected em.selected,
+div.yui1menubar li.selected a.selected {
+
+    color:#fff;
+
+}
+
+
+/* Matches disabled menu items */
+
+div.yui1menu li.disabled,
+div.yui1menubar li.disabled {
+
+    cursor:default;
+
+}
+
+div.yui1menu li.disabled a.disabled,
+div.yui1menu li.disabled em.disabled,
+div.yui1menubar li.disabled a.disabled {
+
+    color:#b9b9b9;
+    cursor:default;
+
+}
+
+div.yui1menubar li.yui1menubaritem {
+
+    float:left;
+    display:inline; /* Prevent margin doubling in IE */
+    border-width:0 0 0 1px;
+    border-style:solid;
+    border-color:#c4c4be;
+    padding:4px 24px;
+    margin:0;
+
+}
+
+div.yui1menubar li.yui1menubaritem.first-of-type {
+
+    border-width:0;
+
+}
+
+
+/* Styles for the the submenu indicator for menu items */
+
+div.yui1menu li.hassubmenu em.submenuindicator,
+div.yui1menubar li.hassubmenu em.submenuindicator {
+
+    display:-moz-inline-box; /* Mozilla */
+    display:inline-block; /* IE, Opera and Safari */
+    vertical-align:middle;
+    height:8px;
+    width:8px;
+    text-indent:9px;
+    font:0/0 arial;
+    overflow:hidden;
+    background-repeat:no-repeat;
+
+}
+
+div.yui1menubar li.hassubmenu em.submenuindicator {
+
+    background-position:0 -24px;
+    margin:0 0 0 10px;
+
+}
+
+div.yui1menubar li.hassubmenu em.submenuindicator.selected {
+
+    background-position:0 -32px;
+
+}
+
+div.yui1menubar li.hassubmenu em.submenuindicator.disabled {
+
+    background-position:0 -40px;
+
+}
+
+div.yui1menu li.hassubmenu em.submenuindicator {
+
+    background-position:0 0;
+    margin:0 -16px 0 10px;
+
+}
+
+div.yui1menu li.hassubmenu em.submenuindicator.selected {
+
+    background-position:0 -8px;
+
+}
+
+div.yui1menu li.hassubmenu em.submenuindicator.disabled {
+
+    background-position:0 -16px;
+
+}
+
+
+/* Styles for a menu item's "checked" state */
+
+div.yui1menu li.checked {
+
+    position:relative;
+
+}
+
+div.yui1menu li.checked em.checkedindicator {
+
+    height:8px;
+    width:8px;
+    text-indent:9px;
+    overflow:hidden;
+    background-position:0 -48px;
+    background-repeat:no-repeat;
+    position:absolute;
+    left:6px;
+    _left:-16px; /* Underscore hack b/c this is for IE 6 only */
+    top:.5em;
+
+}
+
+div.yui1menu li.checked em.checkedindicator.selected {
+
+    background-position:0 -56px;
+
+}
+
+div.yui1menu li.checked em.checkedindicator.disabled {
+
+    background-position:0 -64px;
+
+}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui1/license.txt
+version: 2.2.0
+*/
+/* first or middle sibling, no children */
+.ygtvtn {
+    width:16px; height:22px;
+}
+
+/* first or middle sibling, collapsable */
+.ygtvtm {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* first or middle sibling, collapsable, hover */
+.ygtvtmh {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* first or middle sibling, expandable */
+.ygtvtp {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* first or middle sibling, expandable, hover */
+.ygtvtph {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* last sibling, no children */
+.ygtvln {
+    width:16px; height:22px;
+}
+
+/* Last sibling, collapsable */
+.ygtvlm {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* Last sibling, collapsable, hover */
+.ygtvlmh {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* Last sibling, expandable */
+.ygtvlp {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* Last sibling, expandable, hover */
+.ygtvlph {
+    width:16px; height:22px; cursor:pointer ;
+}
+
+/* Loading icon */
+.ygtvloading {
+    width:16px; height:22px;
+}
+
+/* the style for the empty cells that are used for rendering the depth
+ * of the node */
+.ygtvdepthcell {
+    width:16px; height:22px;
+}
+
+.ygtvblankdepthcell { width:16px; height:22px; }
+
+/* the style of the div around each node */
+.ygtvitem { }
+
+/* the style of the div around each node's collection of children */
+.ygtvchildren { }
+* html .ygtvchildren { height:2%; }
+
+/* the style of the text label in ygTextNode */
+.ygtvlabel, .ygtvlabel:link, .ygtvlabel:visited, .ygtvlabel:hover {
+    margin-left:2px;
+    text-decoration: none;
+}
+
+.ygtvspacer { height: 10px; width: 10px; margin: 2px; }
+
+/* 2ND TIME */
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui2/license.txt
+version: 2.2.0
+*/
+/* for all templates and grids */
+.yui2body{text-align:center;}
+#ft{clear:both;}
+/**/
+/* 750 centered, and backward compatibility */
+#doc,#doc2,#doc3,.yui2-t1,.yui2-t2,.yui2-t3,.yui2-t4,.yui2-t5,.yui2-t6,.yui2-t7 {
+    margin:auto;text-align:left;
+    width:57.69em;*width:56.3em;min-width:750px;}
+/* 950 centered */
+#doc2 {
+    width:73.074em;*width:71.313em;min-width:950px;}
+/* 100% with 10px viewport side matting */
+#doc3 {
+    margin:auto 10px; /* not for structure, but so content doesn't bleed to edge */
+    width:auto;}
+
+/* below required for all fluid grids; adjust widths and margins above accordingly */
+
+/* to preserve source-order independence for Gecko */
+.yui2-b{position:relative;}
+.yui2-b{_position:static;} /* for IE < 7 */
+#yui2-main .yui2-b{position:static;}
+
+#yui2-main {width:100%;}
+.yui2-t1 #yui2-main,
+.yui2-t2 #yui2-main,
+.yui2-t3 #yui2-main{float:right;margin-left:-25em;/* IE: preserve layout at narrow widths */}
+
+.yui2-t4 #yui2-main,
+.yui2-t5 #yui2-main,
+.yui2-t6 #yui2-main{float:left;margin-right:-25em;/* IE: preserve layout at narrow widths */}
+
+.yui2-t1 .yui2-b {
+    float:left;
+    width:12.3207em;*width:12.0106em;}
+.yui2-t1 #yui2-main .yui2-b{
+    margin-left:13.3207em;*margin-left:13.0106em;
+}
+
+.yui2-t2 .yui2-b {
+    float:left;
+    width:13.8456em;*width:13.512em;}
+.yui2-t2 #yui2-main .yui2-b {
+    margin-left:14.8456em;*margin-left:14.512em;
+}
+
+.yui2-t3 .yui2-b {
+    float:left;
+    width:23.0759em;*width:22.52em;}
+.yui2-t3 #yui2-main .yui2-b {
+    margin-left:24.0759em;*margin-left:23.52em;
+}
+
+.yui2-t4 .yui2-b {
+    float:right;
+    width:13.8456em;*width:13.512em;}
+.yui2-t4 #yui2-main .yui2-b {
+    margin-right:14.8456em;*margin-right:14.512em;
+}
+
+.yui2-t5 .yui2-b {
+    float:right;
+    width:18.4608em;*width:18.016em;}
+.yui2-t5 #yui2-main .yui2-b {
+    margin-right:19.4608em;*margin-right:19.016em;
+}
+
+.yui2-t6 .yui2-b {
+    float:right;
+    width:23.0759em;*width:22.52em;}
+.yui2-t6 #yui2-main .yui2-b {
+    margin-right:24.0759em;*margin-right:23.52em;
+}
+
+.yui2-t7 #yui2-main .yui2-b {
+    display:block;margin:0 0 1em 0;
+}
+#yui2-main .yui2-b {float:none;width:auto;}
+/* GRIDS (not TEMPLATES) */
+.yui2-g .yui2-u,
+.yui2-g .yui2-g,
+.yui2-gc .yui2-u,
+.yui2-gc .yui2-g .yui2-u,
+.yui2-ge .yui2-u,
+.yui2-gf .yui2-u{float:right;display:inline;}
+.yui2-g div.first,
+.yui2-gc div.first,
+.yui2-gc div.first div.first,
+.yui2-gd div.first,
+.yui2-ge div.first,
+.yui2-gf div.first{float:left;}
+.yui2-g .yui2-u,
+.yui2-g .yui2-g{width:49.1%;}
+.yui2-g .yui2-g .yui2-u,
+.yui2-gc .yui2-g .yui2-u {width:48.1%;}
+.yui2-gb .yui2-u,
+.yui2-gc .yui2-u,
+.yui2-gd .yui2-u{float:left;margin-left:2%;*margin-left:1.895%;width:32%;}
+.yui2-gb div.first,
+.yui2-gc div.first,
+.yui2-gd div.first{margin-left:0;}
+.yui2-gc div.first,
+.yui2-gd .yui2-u{width:66%;}
+.yui2-gd div.first{width:32%;}
+.yui2-ge .yui2-u{width:24%;}
+.yui2-ge div.first,
+.yui2-gf .yui2-u{width:74.2%;}
+.yui2-gf div.first{width:24%;}
+.yui2-ge div.first{width:74.2%;}
+#bd:after,
+.yui2-g:after,
+.yui2-gb:after,
+.yui2-gc:after,
+.yui2-gd:after,
+.yui2-ge:after,
+.yui2-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+#bd,
+.yui2-g,
+.yui2-gb,
+.yui2-gc,
+.yui2-gd,
+.yui2-ge,
+.yui2-gf{zoom:1;}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui2/license.txt
+version: 2.2.0
+*/
+.yui2button  {
+
+    display:-moz-inline-stack; /* Gecko */
+    display:inline-block; /* IE, Opera and Safari */
+
+    border-width:1px 0;
+    border-style:solid;
+    border-color:#999;
+
+
+    /* Give the transparent background image to IE 6 */
+    _background-image:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../build/button/assets/background.png', sizingMethod = 'scale');
+
+    margin:auto .25em;
+
+}
+
+.yui2button .first-child {
+
+    display:block; /* Gecko, Opera and Safari */
+    *display:inline-block; /* IE */
+
+    border-width:0 1px;
+    border-style:solid;
+    border-color:#999;
+
+    margin:0 -1px;
+    *position:relative;
+    *left:-1px;
+
+}
+
+.yui2button button,
+.yui2button a {
+
+    display:block; /* Opera and Safari */
+    display:-moz-inline-block; /* Gecko */
+    *display:inline-block; /* IE */
+    padding:.25em .5em;
+    border:1px solid #ccc;
+
+}
+
+.yui2button button {
+
+    overflow:visible; /* Remove superfluous padding for IE */
+    font-size:100%; /* Makes form controls resizable in IE */
+    background-color:transparent;
+    cursor:pointer;
+    cursor:hand;
+
+}
+
+.yui2button a {
+
+    text-decoration:none;
+    color:#000;
+
+}
+
+.yui2button.splitbutton button,
+.yui2button.menubutton button {
+
+    padding-right:20px;
+    background-position:right center;
+    background-repeat:no-repeat;
+
+}
+
+.yui2button.menubutton button {
+
+
+}
+
+.yui2button.splitbutton button {
+
+
+}
+
+
+/* Focus state */
+
+.yui2button.focus {
+
+    border-color:#5e5c95;
+
+}
+
+.yui2button.focus .first-child {
+
+    border-color:#5e5c95;
+
+}
+
+.yui2button.focus button,
+.yui2button.focus a {
+
+    border-color:#cec1fc;
+
+}
+
+
+/* Hover state */
+
+.yui2button.hover {
+
+    border-color:#406fac;
+    background-color:#98d5fc;
+
+}
+
+.yui2button.hover .first-child {
+
+    border-color:#406fac;
+
+}
+
+.yui2button.hover button,
+.yui2button.hover a {
+
+    border-color:#7099ce;
+
+}
+
+
+/* Active state */
+
+.yui2button.active {
+
+    border-color:#7a8180;
+    background-color:#333;
+
+}
+
+.yui2button.active .first-child {
+
+    border-color:#7a8180;
+
+}
+
+.yui2button.active button,
+.yui2button.active a {
+
+    border-color:#98a09f;
+
+}
+
+.yui2button.splitbutton.activeoption button {
+
+    background-color:transparent;
+
+}
+
+
+
+/* Checked state */
+
+.yui2button.radio.checked,
+.yui2button.checkbox.checked {
+
+    border-color:#7a8180;
+    background-color:#333;
+
+}
+
+.yui2button.radio.checked .first-child,
+.yui2button.checkbox.checked .first-child {
+
+    border-color:#7a8180;
+
+}
+
+.yui2button.radio.checked button,
+.yui2button.checkbox.checked button {
+
+    border-color:#98a09f;
+
+}
+
+
+
+/* Disabled state */
+
+.yui2button.disabled {
+
+    border-color:#cbcdc5;
+    background:#ecece3;
+
+    _filter:none;
+
+}
+
+.yui2button.disabled .first-child {
+
+    border-color:#cbcdc5;
+
+}
+
+.yui2button.disabled button,
+.yui2button.disabled a {
+
+    border-color:transparent;
+    color:#b9b9b9;
+    cursor:default;
+
+}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui2/license.txt
+version: 2.2.0
+*/
+.yui2-calcontainer {
+    position:relative;
+    padding:5px;
+    background-color:#F7F9FB;
+    border:1px solid #7B9EBD;
+    float:left;
+    overflow:hidden;
+}
+
+.yui2-calcontainer iframe {
+    position:absolute;
+    border:none;
+    margin:0;padding:0;
+    left:-1px;
+    top:-1px;
+    z-index:0;
+    width:50em;
+    height:50em;
+}
+
+.yui2-calcontainer.multi {
+    padding:0;
+}
+
+.yui2-calcontainer.multi .groupcal {
+    padding:5px;
+    background-color:transparent;
+    z-index:1;
+    float:left;
+    position:relative;
+    border:none;
+}
+
+.yui2-calcontainer .title {
+    font:100% sans-serif;
+    color:#000;
+    font-weight:bold;
+    margin-bottom:5px;
+    height:25px;
+    position:absolute;
+    top:3px;left:5px;
+    z-index:1;
+}
+
+.yui2-calcontainer .close-icon {
+    position:absolute;
+    right:3px;
+    top:3px;
+    border:none;
+    z-index:1;
+}
+
+.yui2-calcontainer .calclose {
+    width:17px;
+    height:13px;
+    cursor:pointer;
+}
+
+/* Calendar element styles */
+
+.yui2-calendar {
+    font:100% sans-serif;
+    text-align:center;
+    border-spacing:0;
+    border-collapse:separate;
+    position:relative;
+}
+
+.yui2-calcontainer.withtitle {
+    padding-top:1.5em;
+}
+
+.yui2-calendar .calnavleft {
+    position:absolute;
+    cursor:pointer;
+    top:2px;
+    bottom:0;
+    width:9px;
+    height:12px;
+    left:2px;
+    z-index:1;
+}
+
+.yui2-calendar .calnavright {
+    position:absolute;
+    cursor:pointer;
+    top:2px;
+    bottom:0;
+    width:9px;
+    height:12px;
+    right:2px;
+    z-index:1;
+}
+
+.yui2-calendar td.calcell {
+    padding:.1em .2em;
+    border:1px solid #E0E0E0;
+    text-align:center;
+}
+
+.yui2-calendar td.calcell a {
+    color:#003DB8;
+    text-decoration:none;
+}
+
+.yui2-calendar td.calcell.today {
+    border:1px solid #000;
+}
+
+.yui2-calendar td.calcell.oom {
+    cursor:default;
+    color:#999;
+    background-color:#EEE;
+    border:1px solid #E0E0E0;
+}
+
+.yui2-calendar td.calcell.selected {
+    color:#003DB8;
+    background-color:#FFF19F;
+    border:1px solid #FF9900;
+}
+
+.yui2-calendar td.calcell.calcellhover {
+    cursor:pointer;
+    color:#FFF;
+    background-color:#FF9900;
+    border:1px solid #FF9900;
+}
+
+.yui2-calendar td.calcell.calcellhover a {
+    color:#FFF;
+}
+
+.yui2-calendar td.calcell.restricted {
+    text-decoration:line-through;
+}
+
+.yui2-calendar td.calcell.previous {
+    color:#CCC;
+}
+
+.yui2-calendar td.calcell.highlight1 { background-color:#CCFF99; }
+.yui2-calendar td.calcell.highlight2 { background-color:#99CCFF; }
+.yui2-calendar td.calcell.highlight3 { background-color:#FFCCCC; }
+.yui2-calendar td.calcell.highlight4 { background-color:#CCFF99; }
+
+.yui2-calendar .calhead {
+    border:1px solid #E0E0E0;
+    vertical-align:middle;
+    background-color:#FFF;
+}
+
+.yui2-calendar .calheader {
+    position:relative;
+    width:100%;
+    text-align:center;
+}
+
+.yui2-calendar .calheader img {
+    border:none;
+}
+
+.yui2-calendar .calweekdaycell {
+    color:#666;
+    font-weight:normal;
+    text-align:center;
+    width:1.5em;
+}
+
+.yui2-calendar .calfoot {
+    background-color:#EEE;
+}
+
+.yui2-calendar .calrowhead, .yui2-calendar .calrowfoot {
+    color:#666;
+    font-size:9px;
+    font-style:italic;
+    font-weight:normal;
+    width:15px;
+}
+
+.yui2-calendar .calrowhead {
+    border-right-width:2px;
+}
+
+/* Specific changes for calendar running under fonts/reset */
+.yui2-calendar .calbody a:hover {background:inherit;}
+p#clear {clear:left; padding-top:10px;}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui2/license.txt
+version: 2.2.0
+*/
+.yui2-overlay {
+    position:absolute;
+    display:block;
+}
+
+.yui2-tt {
+    visibility:hidden;
+    position:absolute;
+    color:#333;
+    background-color:#FDFFB4;
+    font-family:arial,helvetica,verdana,sans-serif;
+    padding:2px;
+    border:1px solid #FCC90D;
+    font:100% sans-serif;
+    width:auto;
+}
+
+* html body.masked select {
+    visibility:hidden;
+}
+
+* html div.yui2-panel-container select {
+    visibility:inherit;
+}
+
+* html div.drag select {
+    visibility:hidden;
+}
+
+* html div.hide-select select {
+    visibility:hidden;
+}
+
+.mask {
+    z-index:0;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    -moz-opacity: 0.5;
+    opacity:.50;
+    filter: alpha(opacity=50);
+    background-color:#CCC;
+}
+
+.hide-scrollbars * {
+    overflow:hidden;
+}
+
+.hide-scrollbars textarea, .hide-scrollbars select {
+    overflow:hidden;
+    display:none;
+}
+
+.show-scrollbars textarea, .show-scrollbars select {
+    overflow:visible;
+}
+
+.yui2-panel-container {
+    position:absolute;
+    background-color:transparent;
+    z-index:6;
+    visibility:hidden;
+    overflow:visible;
+    width:auto;
+}
+
+.yui2-panel-container.focused {
+}
+
+
+.yui2-panel-container.matte {
+    padding:3px;
+    background-color:#FFF;
+}
+
+.yui2-panel-container.matte .underlay {
+    display:none;
+}
+
+.yui2-panel-container.shadow {
+    padding:0px;
+    background-color:transparent;
+}
+
+.yui2-panel-container.shadow .underlay {
+    visibility:inherit;
+    position:absolute;
+    background-color:#CCC;
+    top:3px;left:3px;
+    z-index:0;
+    width:100%;
+    height:100%;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter:alpha(opacity=70);
+    zoom:1;
+}
+
+.yui2-panel {
+    visibility:hidden;
+    border-collapse:separate;
+    position:relative;
+    left:0px;top:0px;
+    font:1em Arial;
+    background-color:#FFF;
+    border:1px solid #000;
+    z-index:1;
+    overflow:hidden;
+}
+
+.yui2-panel .hd {
+    background-color:#3d77cb;
+    color:#FFF;
+    font-size:100%;
+    line-height:100%;
+    border:1px solid #FFF;
+    border-bottom:1px solid #000;
+    font-weight:bold;
+    overflow:hidden;
+    padding:4px;
+}
+
+.yui2-panel .bd {
+    overflow:hidden;
+    padding:4px;
+}
+
+.yui2-panel .bd p {
+    margin:0 0 1em;
+}
+
+.yui2-panel .container-close {
+    position:absolute;
+    top:5px;
+    right:4px;
+    z-index:6;
+    height:12px;
+    width:12px;
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    visibility:inherit;
+}
+
+.yui2-panel .ft {
+    padding:4px;
+    overflow:hidden;
+}
+
+.yui2-simple-dialog .bd .yui2-icon {
+    background-repeat:no-repeat;
+    width:16px;
+    height:16px;
+    margin-right:10px;
+    float:left;
+}
+
+.yui2-simple-dialog .bd span.blckicon {
+}
+
+.yui2-simple-dialog .bd span.alrticon {
+}
+
+.yui2-simple-dialog .bd span.hlpicon {
+}
+
+.yui2-simple-dialog .bd span.infoicon {
+}
+
+.yui2-simple-dialog .bd span.warnicon {
+}
+
+.yui2-simple-dialog .bd span.tipicon {
+}
+
+.yui2-dialog .ft, .simple-dialog .ft {
+    padding-bottom:5px;
+    padding-right:5px;
+    text-align:right;
+}
+
+.yui2-dialog form, .yui2-simple-dialog form {
+    margin:0;
+}
+
+.button-group button {
+    font:100 76% verdana;
+    text-decoration:none;
+    background-color: #E4E4E4;
+    color: #333;
+    cursor: hand;
+    vertical-align: middle;
+    border: 2px solid #797979;
+    border-top-color:#FFF;
+    border-left-color:#FFF;
+    margin:2px;
+    padding:2px;
+}
+
+.button-group button.default {
+    font-weight:bold;
+}
+
+.button-group button:hover, .button-group button.hover {
+    border:2px solid #90A029;
+    background-color:#EBF09E;
+    border-top-color:#FFF;
+    border-left-color:#FFF;
+}
+
+.button-group button:active {
+    border:2px solid #E4E4E4;
+    background-color:#BBB;
+    border-top-color:#333;
+    border-left-color:#333;
+}
+
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui2/license.txt
+version: 2.2.0
+*/
+/*debug css
+.example span, .example .yui2-dt-columntext {border:1px solid red;}*/
+
+/*foundational css*/
+td {
+    overflow:hidden;
+}
+
+.yui2-dt-headcontainer {
+    position:relative;
+
+}
+
+.yui2-dt-headtext {
+    position:relative;
+    border-right:10px;
+}
+
+.yui2-dt-headresizer {
+    position:absolute;
+    margin-right:-6px;
+    right:0;
+    bottom:0;
+    width:6px;
+    height:100%;
+    cursor:w-resize;
+    cursor:col-resize;
+}
+
+.yui2-dt-firstlink,.yui2-dt-prevlink,.yui2-dt-nextlink,.yui2-dt-lastlink,.yui2-dt-pagelink {
+    cursor:hand;
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+.yui2-dt-scrollable  {
+    width:20em;
+    margin-bottom:3em;
+}
+
+
+.yui2-dt-scrollable  thead {
+    background:#696969; /*  IE needs a bgcolor to hide tbody as it scrolls */
+    border:1px solid #000;
+    display:block; /* enables tbody scrolling for safari and opera */
+}
+
+.yui2-dt-scrollable  thead th {
+    width:10em; /* any value seems to here, just need something */
+}
+
+tbody.yui2-dt-scrollable {
+    display:block; /* enables tbody scrolling for safari and opera */
+    height:10em;
+    overflow:auto; /* for scrolling other than IE */
+}
+
+/* IE specific */
+.yui2-dt-scrollable  {
+    height:10em;
+    *overflow-y:auto;
+}
+
+.yui2-dt-scrollable  tbody {
+    *height:auto; /* override the non IE height */
+}
+
+.yui2-dt-scrollable thead tr {
+    position:relative;  /* IE cant scroll tbody, so trick it into fixing thead */
+}
+
+.yui2-dt-scrollable tbody td {
+    width:10em;
+}
+
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui2/license.txt
+version: 2.2.0
+*/
+/* Menu styles */
+
+div.yui2menu {
+
+    background-color:#f6f7ee;
+    border:solid 1px #c4c4be;
+    padding:1px;
+
+}
+
+/* Submenus are positioned absolute and hidden by default */
+
+div.yui2menu div.yui2menu,
+div.yui2menubar div.yui2menu {
+
+    position:absolute;
+    visibility:hidden;
+
+}
+
+/* MenuBar Styles */
+
+div.yui2menubar {
+
+    background-color:#f6f7ee;
+
+}
+
+/*
+    Applying a width triggers "haslayout" in IE so that the module's
+    body clears its floated elements
+*/
+div.yui2menubar div.bd {
+
+    width:100%;
+
+}
+
+/*
+    Clear the module body for other browsers
+*/
+div.yui2menubar div.bd:after {
+
+    content:'.';
+    display:block;
+    clear:both;
+    visibility:hidden;
+    height:0;
+
+}
+
+/* Matches the group title (H6) inside a Menu or MenuBar instance */
+
+div.yui2menu h6,
+div.yui2menubar h6 {
+
+    font-size:100%;
+    font-weight:normal;
+    margin:0;
+    border:solid 1px #c4c4be;
+    color:#b9b9b9;
+
+}
+
+div.yui2menubar h6 {
+
+    float:left;
+    display:inline; /* Prevent margin doubling in IE */
+    padding:4px 12px;
+    border-width:0 1px 0 0;
+
+}
+
+div.yui2menu h6 {
+
+    float:none;
+    display:block;
+    border-width:1px 0 0 0;
+    padding:5px 10px 0 10px;
+
+}
+
+/* Matches the UL inside a Menu or MenuBar instance */
+
+div.yui2menubar ul {
+
+    list-style-type:none;
+    margin:0;
+    padding:0;
+
+}
+
+div.yui2menu ul {
+
+    list-style-type:none;
+    border:solid 1px #c4c4be;
+    border-width:1px 0 0 0;
+    margin:0;
+    padding:10px 0;
+
+}
+
+div.yui2menu ul.first-of-type,
+div.yui2menu ul.hastitle,
+div.yui2menu h6.first-of-type {
+
+    border-width:0;
+
+}
+
+/*
+    Styles for the menu's header and footer elements that are used as controls
+    to scroll the menu's body element when the menu's height exceeds the
+    value of the "maxheight" configuration property.
+*/
+
+div.yui2menu div.topscrollbar,
+div.yui2menu div.bottomscrollbar {
+
+    height:16px;
+    background-repeat:no-repeat;
+
+}
+
+
+div.yui2menu div.topscrollbar {
+
+    background-position:center -72px;
+
+}
+
+
+div.yui2menu div.topscrollbar_disabled {
+
+    background-position:center -88px;
+
+}
+
+
+div.yui2menu div.bottomscrollbar {
+
+    background-position:center -104px;
+
+}
+
+
+div.yui2menu div.bottomscrollbar_disabled {
+
+    background-position:center -120px;
+
+}
+
+
+/* MenuItem and MenuBarItem styles */
+
+div.yui2menu li,
+div.yui2menubar li {
+
+    font-size:85%;
+    cursor:pointer;
+    cursor:hand;
+    white-space:nowrap;
+    text-align:left;
+
+}
+
+div.yui2menu li.yui2menuitem {
+
+    padding:2px 24px;
+
+}
+
+div.yui2menu li li,
+div.yui2menubar li li {
+
+    font-size:100%;
+
+}
+
+
+/* Matches the help text for a menu item */
+
+div.yui2menu li.hashelptext em.helptext {
+
+    font-style:normal;
+    margin:0 0 0 40px;
+
+}
+
+div.yui2menu li a,
+div.yui2menubar li a {
+
+    /*
+        "zoom:1" triggers "haslayout" in IE to ensure that the mouseover and
+        mouseout events bubble to the parent LI in IE.
+    */
+    zoom:1;
+    color:#000;
+    text-decoration:none;
+
+}
+
+div.yui2menu li.hassubmenu,
+div.yui2menu li.hashelptext {
+
+    text-align:right;
+
+}
+
+div.yui2menu li.hassubmenu a.hassubmenu,
+div.yui2menu li.hashelptext a.hashelptext {
+
+    float:left;
+    display:inline; /* Prevent margin doubling in IE */
+    text-align:left;
+
+}
+
+
+/* Matches selected menu items */
+
+div.yui2menu li.selected,
+div.yui2menubar li.selected {
+
+    background-color:#8c8ad0;
+
+}
+
+div.yui2menu li.selected a.selected,
+div.yui2menubar li.selected a.selected {
+
+    text-decoration:underline;
+
+}
+
+div.yui2menu li.selected a.selected,
+div.yui2menu li.selected em.selected,
+div.yui2menubar li.selected a.selected {
+
+    color:#fff;
+
+}
+
+
+/* Matches disabled menu items */
+
+div.yui2menu li.disabled,
+div.yui2menubar li.disabled {
+
+    cursor:default;
+
+}
+
+div.yui2menu li.disabled a.disabled,
+div.yui2menu li.disabled em.disabled,
+div.yui2menubar li.disabled a.disabled {
+
+    color:#b9b9b9;
+    cursor:default;
+
+}
+
+div.yui2menubar li.yui2menubaritem {
+
+    float:left;
+    display:inline; /* Prevent margin doubling in IE */
+    border-width:0 0 0 1px;
+    border-style:solid;
+    border-color:#c4c4be;
+    padding:4px 24px;
+    margin:0;
+
+}
+
+div.yui2menubar li.yui2menubaritem.first-of-type {
+
+    border-width:0;
+
+}
+
+
+/* Styles for the the submenu indicator for menu items */
+
+div.yui2menu li.hassubmenu em.submenuindicator,
+div.yui2menubar li.hassubmenu em.submenuindicator {
+
+    display:-moz-inline-box; /* Mozilla */
+    display:inline-block; /* IE, Opera and Safari */
+    vertical-align:middle;
+    height:8px;
+    width:8px;
+    text-indent:9px;
+    font:0/0 arial;
+    overflow:hidden;
+    background-repeat:no-repeat;
+
+}
+
+div.yui2menubar li.hassubmenu em.submenuindicator {
+
+    background-position:0 -24px;
+    margin:0 0 0 10px;
+
+}
+
+div.yui2menubar li.hassubmenu em.submenuindicator.selected {
+
+    background-position:0 -32px;
+
+}
+
+div.yui2menubar li.hassubmenu em.submenuindicator.disabled {
+
+    background-position:0 -40px;
+
+}
+
+div.yui2menu li.hassubmenu em.submenuindicator {
+
+    background-position:0 0;
+    margin:0 -16px 0 10px;
+
+}
+
+div.yui2menu li.hassubmenu em.submenuindicator.selected {
+
+    background-position:0 -8px;
+
+}
+
+div.yui2menu li.hassubmenu em.submenuindicator.disabled {
+
+    background-position:0 -16px;
+
+}
+
+
+/* Styles for a menu item's "checked" state */
+
+div.yui2menu li.checked {
+
+    position:relative;
+
+}
+
+div.yui2menu li.checked em.checkedindicator {
+
+    height:8px;
+    width:8px;
+    text-indent:9px;
+    overflow:hidden;
+    background-position:0 -48px;
+    background-repeat:no-repeat;
+    position:absolute;
+    left:6px;
+    _left:-16px; /* Underscore hack b/c this is for IE 6 only */
+    top:.5em;
+
+}
+
+div.yui2menu li.checked em.checkedindicator.selected {
+
+    background-position:0 -56px;
+
+}
+
+div.yui2menu li.checked em.checkedindicator.disabled {
+
+    background-position:0 -64px;
+
+}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui2/license.txt
+version: 2.2.0
+*/
+/* first or middle sibling, no children */
+.ygtvtn {
+    width:16px; height:22px;
+}
+
+/* first or middle sibling, collapsable */
+.ygtvtm {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* first or middle sibling, collapsable, hover */
+.ygtvtmh {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* first or middle sibling, expandable */
+.ygtvtp {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* first or middle sibling, expandable, hover */
+.ygtvtph {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* last sibling, no children */
+.ygtvln {
+    width:16px; height:22px;
+}
+
+/* Last sibling, collapsable */
+.ygtvlm {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* Last sibling, collapsable, hover */
+.ygtvlmh {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* Last sibling, expandable */
+.ygtvlp {
+    width:16px; height:22px;
+    cursor:pointer ;
+}
+
+/* Last sibling, expandable, hover */
+.ygtvlph {
+    width:16px; height:22px; cursor:pointer ;
+}
+
+/* Loading icon */
+.ygtvloading {
+    width:16px; height:22px;
+}
+
+/* the style for the empty cells that are used for rendering the depth
+ * of the node */
+.ygtvdepthcell {
+    width:16px; height:22px;
+}
+
+.ygtvblankdepthcell { width:16px; height:22px; }
+
+/* the style of the div around each node */
+.ygtvitem { }
+
+/* the style of the div around each node's collection of children */
+.ygtvchildren { }
+* html .ygtvchildren { height:2%; }
+
+/* the style of the text label in ygTextNode */
+.ygtvlabel, .ygtvlabel:link, .ygtvlabel:visited, .ygtvlabel:hover {
+    margin-left:2px;
+    text-decoration: none;
+}
+
+.ygtvspacer { height: 10px; width: 10px; margin: 2px; }
+
+/* 3RD TIME */
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui3/license.txt
+version: 2.2.0
+*/
+/* for all templates and grids */
+.yui3body{text-align:center;}
+#ft{clear:both;}
+/**/
+/* 750 centered, and backward compatibility */
+#doc,#doc2,#doc3,.yui3-t1,.yui3-t2,.yui3-t3,.yui3-t4,.yui3-t5,.yui3-t6,.yui3-t7 {
+    margin:auto;text-align:left;
+    width:57.69em;*width:56.3em;min-width:750px;}
+/* 950 centered */
+#doc2 {
+    width:73.074em;*width:71.313em;min-width:950px;}
+/* 100% with 10px viewport side matting */
+#doc3 {
+    margin:auto 10px; /* not for structure, but so content doesn't bleed to edge */
+    width:auto;}
+
+/* below required for all fluid grids; adjust widths and margins above accordingly */
+
+/* to preserve source-order independence for Gecko */
+.yui3-b{position:relative;}
+.yui3-b{_position:static;} /* for IE < 7 */
+#yui3-main .yui3-b{position:static;}
+
+#yui3-main {width:100%;}
+.yui3-t1 #yui3-main,
+.yui3-t2 #yui3-main,
+.yui3-t3 #yui3-main{float:right;margin-left:-25em;/* IE: preserve layout at narrow widths */}
+
+.yui3-t4 #yui3-main,
+.yui3-t5 #yui3-main,
+.yui3-t6 #yui3-main{float:left;margin-right:-25em;/* IE: preserve layout at narrow widths */}
+
+.yui3-t1 .yui3-b {
+    float:left;
+    width:12.3207em;*width:12.0106em;}
+.yui3-t1 #yui3-main .yui3-b{
+    margin-left:13.3207em;*margin-left:13.0106em;
+}
+
+.yui3-t2 .yui3-b {
+    float:left;
+    width:13.8456em;*width:13.512em;}
+.yui3-t2 #yui3-main .yui3-b {
+    margin-left:14.8456em;*margin-left:14.512em;
+}
+
+.yui3-t3 .yui3-b {
+    float:left;
+    width:23.0759em;*width:22.52em;}
+.yui3-t3 #yui3-main .yui3-b {
+    margin-left:24.0759em;*margin-left:23.52em;
+}
+
+.yui3-t4 .yui3-b {
+    float:right;
+    width:13.8456em;*width:13.512em;}
+.yui3-t4 #yui3-main .yui3-b {
+    margin-right:14.8456em;*margin-right:14.512em;
+}
+
+.yui3-t5 .yui3-b {
+    float:right;
+    width:18.4608em;*width:18.016em;}
+.yui3-t5 #yui3-main .yui3-b {
+    margin-right:19.4608em;*margin-right:19.016em;
+}
+
+.yui3-t6 .yui3-b {
+    float:right;
+    width:23.0759em;*width:22.52em;}
+.yui3-t6 #yui3-main .yui3-b {
+    margin-right:24.0759em;*margin-right:23.52em;
+}
+
+.yui3-t7 #yui3-main .yui3-b {
+    display:block;margin:0 0 1em 0;
+}
+#yui3-main .yui3-b {float:none;width:auto;}
+/* GRIDS (not TEMPLATES) */
+.yui3-g .yui3-u,
+.yui3-g .yui3-g,
+.yui3-gc .yui3-u,
+.yui3-gc .yui3-g .yui3-u,
+.yui3-ge .yui3-u,
+.yui3-gf .yui3-u{float:right;display:inline;}
+.yui3-g div.first,
+.yui3-gc div.first,
+.yui3-gc div.first div.first,
+.yui3-gd div.first,
+.yui3-ge div.first,
+.yui3-gf div.first{float:left;}
+.yui3-g .yui3-u,
+.yui3-g .yui3-g{width:49.1%;}
+.yui3-g .yui3-g .yui3-u,
+.yui3-gc .yui3-g .yui3-u {width:48.1%;}
+.yui3-gb .yui3-u,
+.yui3-gc .yui3-u,
+.yui3-gd .yui3-u{float:left;margin-left:2%;*margin-left:1.895%;width:32%;}
+.yui3-gb div.first,
+.yui3-gc div.first,
+.yui3-gd div.first{margin-left:0;}
+.yui3-gc div.first,
+.yui3-gd .yui3-u{width:66%;}
+.yui3-gd div.first{width:32%;}
+.yui3-ge .yui3-u{width:24%;}
+.yui3-ge div.first,
+.yui3-gf .yui3-u{width:74.2%;}
+.yui3-gf div.first{width:24%;}
+.yui3-ge div.first{width:74.2%;}
+#bd:after,
+.yui3-g:after,
+.yui3-gb:after,
+.yui3-gc:after,
+.yui3-gd:after,
+.yui3-ge:after,
+.yui3-gf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+#bd,
+.yui3-g,
+.yui3-gb,
+.yui3-gc,
+.yui3-gd,
+.yui3-ge,
+.yui3-gf{zoom:1;}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui3/license.txt
+version: 2.2.0
+*/
+.yui3button  {
+
+    display:-moz-inline-stack; /* Gecko */
+    display:inline-block; /* IE, Opera and Safari */
+
+    border-width:1px 0;
+    border-style:solid;
+    border-color:#999;
+
+
+    /* Give the transparent background image to IE 6 */
+    _background-image:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../build/button/assets/background.png', sizingMethod = 'scale');
+
+    margin:auto .25em;
+
+}
+
+.yui3button .first-child {
+
+    display:block; /* Gecko, Opera and Safari */
+    *display:inline-block; /* IE */
+
+    border-width:0 1px;
+    border-style:solid;
+    border-color:#999;
+
+    margin:0 -1px;
+    *position:relative;
+    *left:-1px;
+
+}
+
+.yui3button button,
+.yui3button a {
+
+    display:block; /* Opera and Safari */
+    display:-moz-inline-block; /* Gecko */
+    *display:inline-block; /* IE */
+    padding:.25em .5em;
+    border:1px solid #ccc;
+
+}
+
+.yui3button button {
+
+    overflow:visible; /* Remove superfluous padding for IE */
+    font-size:100%; /* Makes form controls resizable in IE */
+    background-color:transparent;
+    cursor:pointer;
+    cursor:hand;
+
+}
+
+.yui3button a {
+
+    text-decoration:none;
+    color:#000;
+
+}
+
+.yui3button.splitbutton button,
+.yui3button.menubutton button {
+
+    padding-right:20px;
+    background-position:right center;
+    background-repeat:no-repeat;
+
+}
+
+.yui3button.menubutton button {
+
+
+}
+
+.yui3button.splitbutton button {
+
+
+}
+
+
+/* Focus state */
+
+.yui3button.focus {
+
+    border-color:#5e5c95;
+
+}
+
+.yui3button.focus .first-child {
+
+    border-color:#5e5c95;
+
+}
+
+.yui3button.focus button,
+.yui3button.focus a {
+
+    border-color:#cec1fc;
+
+}
+
+
+/* Hover state */
+
+.yui3button.hover {
+
+    border-color:#406fac;
+    background-color:#98d5fc;
+
+}
+
+.yui3button.hover .first-child {
+
+    border-color:#406fac;
+
+}
+
+.yui3button.hover button,
+.yui3button.hover a {
+
+    border-color:#7099ce;
+
+}
+
+
+/* Active state */
+
+.yui3button.active {
+
+    border-color:#7a8180;
+    background-color:#333;
+
+}
+
+.yui3button.active .first-child {
+
+    border-color:#7a8180;
+
+}
+
+.yui3button.active button,
+.yui3button.active a {
+
+    border-color:#98a09f;
+
+}
+
+.yui3button.splitbutton.activeoption button {
+
+    background-color:transparent;
+
+}
+
+
+
+/* Checked state */
+
+.yui3button.radio.checked,
+.yui3button.checkbox.checked {
+
+    border-color:#7a8180;
+    background-color:#333;
+
+}
+
+.yui3button.radio.checked .first-child,
+.yui3button.checkbox.checked .first-child {
+
+    border-color:#7a8180;
+
+}
+
+.yui3button.radio.checked button,
+.yui3button.checkbox.checked button {
+
+    border-color:#98a09f;
+
+}
+
+
+
+/* Disabled state */
+
+.yui3button.disabled {
+
+    border-color:#cbcdc5;
+    background:#ecece3;
+
+    _filter:none;
+
+}
+
+.yui3button.disabled .first-child {
+
+    border-color:#cbcdc5;
+
+}
+
+.yui3button.disabled button,
+.yui3button.disabled a {
+
+    border-color:transparent;
+    color:#b9b9b9;
+    cursor:default;
+
+}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui3/license.txt
+version: 2.2.0
+*/
+.yui3-calcontainer {
+    position:relative;
+    padding:5px;
+    background-color:#F7F9FB;
+    border:1px solid #7B9EBD;
+    float:left;
+    overflow:hidden;
+}
+
+.yui3-calcontainer iframe {
+    position:absolute;
+    border:none;
+    margin:0;padding:0;
+    left:-1px;
+    top:-1px;
+    z-index:0;
+    width:50em;
+    height:50em;
+}
+
+.yui3-calcontainer.multi {
+    padding:0;
+}
+
+.yui3-calcontainer.multi .groupcal {
+    padding:5px;
+    background-color:transparent;
+    z-index:1;
+    float:left;
+    position:relative;
+    border:none;
+}
+
+.yui3-calcontainer .title {
+    font:100% sans-serif;
+    color:#000;
+    font-weight:bold;
+    margin-bottom:5px;
+    height:25px;
+    position:absolute;
+    top:3px;left:5px;
+    z-index:1;
+}
+
+.yui3-calcontainer .close-icon {
+    position:absolute;
+    right:3px;
+    top:3px;
+    border:none;
+    z-index:1;
+}
+
+.yui3-calcontainer .calclose {
+    width:17px;
+    height:13px;
+    cursor:pointer;
+}
+
+/* Calendar element styles */
+
+.yui3-calendar {
+    font:100% sans-serif;
+    text-align:center;
+    border-spacing:0;
+    border-collapse:separate;
+    position:relative;
+}
+
+.yui3-calcontainer.withtitle {
+    padding-top:1.5em;
+}
+
+.yui3-calendar .calnavleft {
+    position:absolute;
+    cursor:pointer;
+    top:2px;
+    bottom:0;
+    width:9px;
+    height:12px;
+    left:2px;
+    z-index:1;
+}
+
+.yui3-calendar .calnavright {
+    position:absolute;
+    cursor:pointer;
+    top:2px;
+    bottom:0;
+    width:9px;
+    height:12px;
+    right:2px;
+    z-index:1;
+}
+
+.yui3-calendar td.calcell {
+    padding:.1em .2em;
+    border:1px solid #E0E0E0;
+    text-align:center;
+}
+
+.yui3-calendar td.calcell a {
+    color:#003DB8;
+    text-decoration:none;
+}
+
+.yui3-calendar td.calcell.today {
+    border:1px solid #000;
+}
+
+.yui3-calendar td.calcell.oom {
+    cursor:default;
+    color:#999;
+    background-color:#EEE;
+    border:1px solid #E0E0E0;
+}
+
+.yui3-calendar td.calcell.selected {
+    color:#003DB8;
+    background-color:#FFF19F;
+    border:1px solid #FF9900;
+}
+
+.yui3-calendar td.calcell.calcellhover {
+    cursor:pointer;
+    color:#FFF;
+    background-color:#FF9900;
+    border:1px solid #FF9900;
+}
+
+.yui3-calendar td.calcell.calcellhover a {
+    color:#FFF;
+}
+
+.yui3-calendar td.calcell.restricted {
+    text-decoration:line-through;
+}
+
+.yui3-calendar td.calcell.previous {
+    color:#CCC;
+}
+
+.yui3-calendar td.calcell.highlight1 { background-color:#CCFF99; }
+.yui3-calendar td.calcell.highlight2 { background-color:#99CCFF; }
+.yui3-calendar td.calcell.highlight3 { background-color:#FFCCCC; }
+.yui3-calendar td.calcell.highlight4 { background-color:#CCFF99; }
+
+.yui3-calendar .calhead {
+    border:1px solid #E0E0E0;
+    vertical-align:middle;
+    background-color:#FFF;
+}
+
+.yui3-calendar .calheader {
+    position:relative;
+    width:100%;
+    text-align:center;
+}
+
+.yui3-calendar .calheader img {
+    border:none;
+}
+
+.yui3-calendar .calweekdaycell {
+    color:#666;
+    font-weight:normal;
+    text-align:center;
+    width:1.5em;
+}
+
+.yui3-calendar .calfoot {
+    background-color:#EEE;
+}
+
+.yui3-calendar .calrowhead, .yui3-calendar .calrowfoot {
+    color:#666;
+    font-size:9px;
+    font-style:italic;
+    font-weight:normal;
+    width:15px;
+}
+
+.yui3-calendar .calrowhead {
+    border-right-width:2px;
+}
+
+/* Specific changes for calendar running under fonts/reset */
+.yui3-calendar .calbody a:hover {background:inherit;}
+p#clear {clear:left; padding-top:10px;}
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui3/license.txt
+version: 2.2.0
+*/
+.yui3-overlay {
+    position:absolute;
+    display:block;
+}
+
+.yui3-tt {
+    visibility:hidden;
+    position:absolute;
+    color:#333;
+    background-color:#FDFFB4;
+    font-family:arial,helvetica,verdana,sans-serif;
+    padding:2px;
+    border:1px solid #FCC90D;
+    font:100% sans-serif;
+    width:auto;
+}
+
+* html body.masked select {
+    visibility:hidden;
+}
+
+* html div.yui3-panel-container select {
+    visibility:inherit;
+}
+
+* html div.drag select {
+    visibility:hidden;
+}
+
+* html div.hide-select select {
+    visibility:hidden;
+}
+
+.mask {
+    z-index:0;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    -moz-opacity: 0.5;
+    opacity:.50;
+    filter: alpha(opacity=50);
+    background-color:#CCC;
+}
+
+.hide-scrollbars * {
+    overflow:hidden;
+}
+
+.hide-scrollbars textarea, .hide-scrollbars select {
+    overflow:hidden;
+    display:none;
+}
+
+.show-scrollbars textarea, .show-scrollbars select {
+    overflow:visible;
+}
+
+.yui3-panel-container {
+    position:absolute;
+    background-color:transparent;
+    z-index:6;
+    visibility:hidden;
+    overflow:visible;
+    width:auto;
+}
+
+.yui3-panel-container.focused {
+}
+
+
+.yui3-panel-container.matte {
+    padding:3px;
+    background-color:#FFF;
+}
+
+.yui3-panel-container.matte .underlay {
+    display:none;
+}
+
+.yui3-panel-container.shadow {
+    padding:0px;
+    background-color:transparent;
+}
+
+.yui3-panel-container.shadow .underlay {
+    visibility:inherit;
+    position:absolute;
+    background-color:#CCC;
+    top:3px;left:3px;
+    z-index:0;
+    width:100%;
+    height:100%;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter:alpha(opacity=70);
+    zoom:1;
+}
+
+.yui3-panel {
+    visibility:hidden;
+    border-collapse:separate;
+    position:relative;
+    left:0px;top:0px;
+    font:1em Arial;
+    background-color:#FFF;
+    border:1px solid #000;
+    z-index:1;
+    overflow:hidden;
+}
+
+.yui3-panel .hd {
+    background-color:#3d77cb;
+    color:#FFF;
+    font-size:100%;
+    line-height:100%;
+    border:1px solid #FFF;
+    border-bottom:1px solid #000;
+    font-weight:bold;
+    overflow:hidden;
+    padding:4px;
+}
+
+.yui3-panel .bd {
+    overflow:hidden;
+    padding:4px;
+}
+
+.yui3-panel .bd p {
+    margin:0 0 1em;
+}
+
+.yui3-panel .container-close {
+    position:absolute;
+    top:5px;
+    right:4px;
+    z-index:6;
+    height:12px;
+    width:12px;
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    visibility:inherit;
+}
+
+.yui3-panel .ft {
+    padding:4px;
+    overflow:hidden;
+}
+
+.yui3-simple-dialog .bd .yui3-icon {
+    background-repeat:no-repeat;
+    width:16px;
+    height:16px;
+    margin-right:10px;
+    float:left;
+}
+
+.yui3-simple-dialog .bd span.blckicon {
+}
+
+.yui3-simple-dialog .bd span.alrticon {
+}
+
+.yui3-simple-dialog .bd span.hlpicon {
+}
+
+.yui3-simple-dialog .bd span.infoicon {
+}
+
+.yui3-simple-dialog .bd span.warnicon {
+}
+
+.yui3-simple-dialog .bd span.tipicon {
+}
+
+.yui3-dialog .ft, .simple-dialog .ft {
+    padding-bottom:5px;
+    padding-right:5px;
+    text-align:right;
+}
+
+.yui3-dialog form, .yui3-simple-dialog form {
+    margin:0;
+}
+
+.button-group button {
+    font:100 76% verdana;
+    text-decoration:none;
+    background-color: #E4E4E4;
+    color: #333;
+    cursor: hand;
+    vertical-align: middle;
+    border: 2px solid #797979;
+    border-top-color:#FFF;
+    border-left-color:#FFF;
+    margin:2px;
+    padding:2px;
+}
+
+.button-group button.default {
+    font-weight:bold;
+}
+
+.button-group button:hover, .button-group button.hover {
+    border:2px solid #90A029;
+    background-color:#EBF09E;
+    border-top-color:#FFF;
+    border-left-color:#FFF;
+}
+
+.button-group button:active {
+    border:2px solid #E4E4E4;
+    background-color:#BBB;
+    border-top-color:#333;
+    border-left-color:#333;
+}
+
+
+/*
+Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui3/license.txt
+version: 2.2.0
+*/
+/*debug css
+.example span, .example .yui3-dt-columntext {border:1px solid red;}*/
+
+/*foundational css*/
+td {
+    overflow:hidden;
+}
+
+.yui3-dt-headcontainer {
+    position:relative;
+
+}
+
+.yui3-dt4 {
+    position:relative;
+    border:0;
+}
+
+.yui3-dt-headresizer {
+}
